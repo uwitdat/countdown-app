@@ -2,6 +2,7 @@
 
 let numState = 0
 let numStateHalf = 0
+let numStateThird = 0
 
 //SELECTORS
 let input = document.querySelector('input');
@@ -68,9 +69,9 @@ for(let i = num; i >= 0; i--){
 function timer(num){
     numState = num
     numStateHalf = num / 2
+    numStateThird = num / 1.5
 
 }
-
 
 //CHECK FUNCTION (crosses off li item)
 function btnCheck(btn){
@@ -79,16 +80,37 @@ function btnCheck(btn){
         btn.style.background = 'green';
         let btnStyle = btn.parentElement
         btnStyle.style.textDecoration = 'line-through'
-        countdownText(numState)
+        btn.setAttribute('disabled', true)
+        progressText(numState)
+        console.log(numState)
         numState--   
-
     })
 }
 
-function countdownText(num){
+function progressText(num){
+    let thirty = 30
+    let fourteen = 14
+    let seven = 7
+    let three = 3
+    let two = 2
+    let one = 1
     let end = 0
-    if(num === Math.ceil(numStateHalf)){
-        numText.innerText = 'Youre halfway There!'
+    if(num === Math.ceil(numStateThird)){
+        numText.innerText = 'Making Progress!'     
+    }if(num === Math.ceil(numStateHalf)){
+        numText.innerText = 'Youre Halfway There! Keep Going!'
+    }if(num === thirty){
+        numText.innerText = 'One Month Left!'
+    }if(num === fourteen){
+        numText.innerText = 'Two Weeks Left!'
+    }if(num === seven){
+        numText.innerText = 'One Week Left!'   
+    }if(num === three){
+        numText.innerText = 'Three Days Left!'
+    }if(num === two){
+        numText.innerText = 'Two Days Left!!'
+    }if(num === one){
+        numText.innerText = 'One Day Left!!!' 
     }if(num === end){
         numText.innerText = 'Congratulations! You did it!'
     }
