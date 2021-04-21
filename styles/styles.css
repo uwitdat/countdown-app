@@ -1,0 +1,10 @@
+ul > li {
+  list-style-type: none !important;
+}
+
+li > button {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid black;
+  color: white;
+  border-radius: 65%;
+}
